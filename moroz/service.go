@@ -5,7 +5,7 @@ import (
 	"time"
 
 	"github.com/go-kit/kit/endpoint"
-	"github.com/groob/moroz/santa"
+	"github.com/kallsyms/moroz/santa"
 )
 
 type ConfigStore interface {
