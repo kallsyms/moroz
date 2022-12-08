@@ -1,0 +1,13 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_library")
+
+go_library(
+    name = "santaconfig",
+    srcs = ["config.go"],
+    importpath = "github.com/groob/moroz/santaconfig",
+    visibility = ["//visibility:public"],
+    deps = [
+        "//santa",
+        "@com_github_burntsushi_toml//:toml",
+        "@com_github_pkg_errors//:errors",
+    ],
+)

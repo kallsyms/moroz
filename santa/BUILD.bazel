@@ -1,0 +1,17 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_library", "go_test")
+
+go_library(
+    name = "santa",
+    srcs = ["santa.go"],
+    importpath = "github.com/groob/moroz/santa",
+    visibility = ["//visibility:public"],
+    deps = ["@com_github_pkg_errors//:errors"],
+)
+
+go_test(
+    name = "santa_test",
+    srcs = ["santa_test.go"],
+    data = glob(["testdata/**"]),
+    embed = [":santa"],
+    deps = ["@com_github_burntsushi_toml//:toml"],
+)

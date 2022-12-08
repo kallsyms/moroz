@@ -1,0 +1,23 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_library")
+
+go_library(
+    name = "moroz",
+    srcs = [
+        "middleware.go",
+        "server.go",
+        "service.go",
+        "svc_preflight.go",
+        "svc_rule_download.go",
+        "svc_upload_event.go",
+    ],
+    importpath = "github.com/groob/moroz/moroz",
+    visibility = ["//visibility:public"],
+    deps = [
+        "//santa",
+        "@com_github_go_kit_kit//endpoint",
+        "@com_github_go_kit_kit//log",
+        "@com_github_go_kit_kit//transport/http",
+        "@com_github_gorilla_mux//:mux",
+        "@com_github_pkg_errors//:errors",
+    ],
+)

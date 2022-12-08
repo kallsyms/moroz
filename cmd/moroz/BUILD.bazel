@@ -1,0 +1,25 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_binary", "go_library")
+
+go_library(
+    name = "moroz_lib",
+    srcs = ["main.go"],
+    importpath = "github.com/groob/moroz/cmd/moroz",
+    visibility = ["//visibility:private"],
+    deps = [
+        "//moroz",
+        "//santaconfig",
+        "@com_github_go_kit_kit//log/level",
+        "@com_github_gorilla_mux//:mux",
+        "@com_github_kolide_kit//env",
+        "@com_github_kolide_kit//httputil",
+        "@com_github_kolide_kit//logutil",
+        "@com_github_kolide_kit//version",
+        "@com_github_oklog_run//:run",
+    ],
+)
+
+go_binary(
+    name = "moroz",
+    embed = [":moroz_lib"],
+    visibility = ["//visibility:public"],
+)
