@@ -1,4 +1,4 @@
-module github.com/kallsyms/moroz
+module github.com/groob/moroz
 
 require (
 	github.com/BurntSushi/toml v0.2.0
